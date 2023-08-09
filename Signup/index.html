@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>SignUp Page</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    
+    function validateForm() {
+      
+      var username = document.forms["myForm"]["username"].value;
+      var password = document.forms["myForm"]["password"].value;
+      var email = document.forms["myForm"]["email"].value;
+      
+      if (username.length < 3 || username.length > 16) {
+        document.getElementById("usernameError").innerHTML = "Username must be between 3 and 16 letters";
+        return false;
+      } else {
+        document.getElementById("usernameError").innerHTML = "";
+      }
+
+
+      if (password.length < 6) {
+        document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+        return false;
+      } else {
+        document.getElementById("passwordError").innerHTML = "";
+      }
+
+
+
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerHTML = "Invalid email address";
+        return false;
+      } else {
+        document.getElementById("emailError").innerHTML = "";
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="center">
+    <div class="imgcont">
+      <img src="img-01.png" width="350px" height="290px">
+    </div>
+    <div class="in">
+      <h1>Sign Up</h1>
+      <form method="post" onsubmit="return validateForm()" action="signup.php" name ="myForm">
+        <div class="txt_field">
+          <input type="text" name="username" id="username" required>
+          <span></span>
+          <label>Username</label>
+          <div id="usernameError" style="color: red;"></div>
+        </div>
+        <div class="txt_field">
+          <input type="email" name="email" id = "email" required>
+          <span></span>
+          <label>E-mail</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password"  id = "password" required>
+          <span></span>
+         
+          <div id="passwordError" style="color: red;"></div>
+          <label>Password</label>
+        </div>
+
+        <input type="submit" value="Sign Up">
+        <div class="signup_link">
+          Already a member? <a href="\sam\Login\index.html">Login</a>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="game">
+            <button class="options" id="snakebtn" onclick="handleClickg1()">
+                <h1>SNAKE</h1>
+            </button>
+            <button class="options" id="hmanbtn" onclick="handleClickg2()">
+                <h1>HANGMAN</h1>
+            </button>
+            <button class="options" id="log" onclick="sessionStorage.clear();">
+                <h1><a href="\sam\Login\index.html">
+                    Logout
+               </a></h1>
+            </button>
+        </div>
+
+
+    </div>
+
+    <script>
+        var element = document.getElementById('snakebtn');
+        var canva = document.getElementById('img');
+        var canva2 = document.getElementById('canva2');
+        canva2.classList.add("hide");
+        canva.style.display = "none";
+        element.addEventListener('mouseover', function (event) {
+            // Code to be executed when the mouse hovers over the element
+
+            canva.style.display = "block";
+        });
+
+        element.addEventListener('mouseout', function (event) {
+            canva.style.display = "none";
+            // Code to be executed when the mouse leaves the element
+        });
+
+        var element2 = document.getElementById('hmanbtn');
+
+        element2.addEventListener('mouseover', function (event) {
+            // Code to be executed when the mouse hovers over the element
+            // canva.innerHTML = '<h1>hangman clicked</h1>';
+        });
+
+        element2.addEventListener('mouseout', function (event) {
+            // canva.innerHTML = '';
+            // Code to be executed when the mouse leaves the element
+        });
+
+        function handleClickg1() {
+            // canva.innerHTML = '<h1>snake clicked</h1>';
+            window.location.href = "/sam/snake/index.php";
+        }
+
+        function handleClickg2() {
+            window.location.href = "/sam/hangman/index.html";
+        }
+
+    </script>
+</body>
+
+</html>
